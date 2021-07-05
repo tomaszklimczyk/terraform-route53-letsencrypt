@@ -22,7 +22,7 @@ resource "acme_registration" "obj" {
   account_key_pem = tls_private_key.obj.private_key_pem
   email_address   = var.email_address
 }
-/*
+
 resource "acme_certificate" "obj" {
   account_key_pem = acme_registration.obj.account_key_pem
   common_name     = aws_route53_record.obj.fqdn
@@ -37,7 +37,6 @@ resource "acme_certificate" "obj" {
     }
   }
 }
-*/
 /*
 # Store the cert on the local file system
 resource "local_file" "ca" {
@@ -56,7 +55,7 @@ resource "local_file" "cert" {
 }
 */
 
-/*
+
 # Output the cert on the local file system
 output "output_ca" {
   value = acme_certificate.obj.issuer_pem
@@ -69,4 +68,3 @@ output "output_priv" {
 output "output_cert" {
   value = acme_certificate.obj.certificate_pem
 }
-*/

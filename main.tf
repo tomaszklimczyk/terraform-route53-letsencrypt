@@ -61,9 +61,9 @@ output "output_ca" {
 }
 
 output "output_priv" {
-  sensitive_content = acme_certificate.obj.private_key_pem
+  value = acme_certificate.obj.private_key_pem
 }
 
 output "output_cert" {
-  sensitive_content = acme_certificate.obj.certificate_pem
+  value = acme_certificate.obj.certificate_pem
 }

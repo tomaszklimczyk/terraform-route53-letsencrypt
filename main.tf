@@ -37,7 +37,7 @@ resource "acme_certificate" "obj" {
     }
   }
 }
-
+/*
 # Store the cert on the local file system
 resource "local_file" "ca" {
   sensitive_content = acme_certificate.obj.issuer_pem
@@ -52,4 +52,18 @@ resource "local_file" "priv" {
 resource "local_file" "cert" {
   sensitive_content = acme_certificate.obj.certificate_pem
   filename          = "${var.record_name}.${data.aws_route53_zone.obj.name}.cert.pem"
+}
+*/
+
+# Output the cert on the local file system
+output "output_ca" {
+  value = acme_certificate.obj.issuer_pem
+}
+
+output "output_priv" {
+  sensitive_content = acme_certificate.obj.private_key_pem
+}
+
+output "output_cert" {
+  sensitive_content = acme_certificate.obj.certificate_pem
 }

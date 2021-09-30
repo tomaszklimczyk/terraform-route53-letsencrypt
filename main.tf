@@ -26,6 +26,7 @@ resource "acme_registration" "obj" {
 resource "acme_certificate" "obj" {
   account_key_pem = acme_registration.obj.account_key_pem
   common_name     = aws_route53_record.obj.fqdn
+  preferred_chain = "ISRG Root X1"
 
   dns_challenge {
     provider = "route53"
